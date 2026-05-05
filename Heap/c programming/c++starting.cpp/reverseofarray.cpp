@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5]={1,2,3,4,5};
+    int i=0,j=4;
+    while(i<j)
+    {
+      int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+        i++;
+        j--;
+    }
+    for(i=0;i<=4;i++)
+    {
+        cout<<arr[i];
+    }
+    return 0;
+}

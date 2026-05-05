@@ -1,0 +1,14 @@
+#include<stdio.h>
+
+int main()
+{
+    int n;
+    printf("enter any number:");
+    scanf("%d",&n);
+    while(n>0)
+    {
+       printf("ram");
+       n++;
+    }
+    return 0;
+}
