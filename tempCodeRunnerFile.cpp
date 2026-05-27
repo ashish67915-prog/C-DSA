@@ -1,28 +1,29 @@
 #include<iostream>
 using namespace std;
 
-class Student
+template<class T1 , class T2>
+class  Student
 {
+    T1 Reg;
+    T2 fees;
     public:
-    void display();
-    friend void show();
+    Student(T1 Reg , T2 fees)
+    {
+        this->Reg = Reg;
+        this->fees = fees;
+    }
+
+    void display()
+    {
+        cout<<"reg number of the student : "<<Reg<<endl;
+        cout<<"fees of the student : "<<fees<<endl;
+    }
 };
-
-void Student :: display()
-{
-    cout<<"this is the display"<<endl;
-}
-
-
-void show()
-{
-    cout<<"this is the show"<<endl;
-}
 
 int main()
 {
-    Student obj1;
-    obj1.display();   //calling member function
-    show();           //calling friend function
+    Student<int,float> o1(1,2500.50);
+    o1.display();
     return 0;
 }
+

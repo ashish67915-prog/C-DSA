@@ -1,4 +1,4 @@
-//default constructor and parameterised constructor
+// //default constructor and parameterised constructor
 
 
 
@@ -84,7 +84,7 @@
 // }
 
 
-
+//copy constructor
 
 // #include<iostream>
 // using  namespace std;
@@ -127,7 +127,7 @@
 
 
 
-//shallow copy constructor
+// shallow copy constructor
 
 
 
@@ -229,7 +229,7 @@
 
 
 
-//deep copy constructor
+// deep copy constructor
 
 
 
@@ -342,7 +342,7 @@
 
 
 
-//static variable in class
+// static variable in class
 
 
 
@@ -511,8 +511,8 @@
 
 
 
-//binary operator  overloading
-//other binary operator same code only replace symbol
+// binary operator  overloading
+// other binary operator same code only replace symbol
 
 
 // #include<iostream>
@@ -687,38 +687,38 @@
 
 
 
-//friend function
+// friend function
 
 
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-class Student
-{
-    public:
-    void display();
-    friend void show();
-};
+// class Student
+// {
+//     public:
+//     void display();
+//     friend void show();
+// };
 
-void Student :: display()
-{
-    cout<<"this is the display"<<endl;
-}
+// void Student :: display()
+// {
+//     cout<<"this is the display"<<endl;
+// }
 
 
-void show()
-{
-    cout<<"this is the show"<<endl;
-}
+// void show()
+// {
+//     cout<<"this is the show"<<endl;
+// }
 
-int main()
-{
-    Student obj1;
-    obj1.display();   //calling member function
-    show();           //calling friend function
-    return 0;
-}
+// int main()
+// {
+//     Student obj1;
+//     obj1.display();   //calling member function
+//     show();           //calling friend function
+//     return 0;
+// }
 
 
 
@@ -772,7 +772,7 @@ int main()
 //virtual function=redirect the method 
 //over riding is not neccessay if you does make method in derived class as virtual function then it not throw any error
 
-
+// 
 
 
 
@@ -856,44 +856,44 @@ int main()
 
 //Aggregation=  Aggregation is a relationship between two classes where one class contains a reference or pointer to another class, and both can exist independently.
 
-#include<iostream>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-class Engine
-{
-public:
-    void show()
-    {
-        cout << "Engine is working" << endl;
-    }
-};
+// class Engine
+// {
+// public:
+//     void show()
+//     {
+//         cout << "Engine is working" << endl;
+//     }
+// };
 
-class Car
-{
-public:
-    Engine *e;   // Aggregation
+// class Car
+// {
+// public:
+//     Engine *e;   // Aggregation
 
-    Car(Engine *eng)
-    {
-        e = eng;
-    }
+//     Car(Engine *eng)
+//     {
+//         e = eng;
+//     }
 
-    void display()
-    {
-        cout << "Car has an engine" << endl;
-        e->show();
-    }
-};
+//     void display()
+//     {
+//         cout << "Car has an engine" << endl;
+//         e->show();
+//     }
+// };
 
-int main()
-{
-    Engine e1;        // Independent object
-    Car c1(&e1);      // Car uses Engine
+// int main()
+// {
+//     Engine e1;        // Independent object
+//     Car c1(&e1);      // Car uses Engine
 
-    c1.display();
+//     c1.display();
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 
@@ -1021,8 +1021,236 @@ int main()
 // }
 
 
+//dynamic memory allocation
+// #include<iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int n;
+//     cout<<"enter the limit of array : ";
+//     cin>>n;
+
+//     int *arr = new int[n];
+//     cout<<"enter the elements of array : ";
+
+//     for(int i=0;i<n;i++)
+//     {
+//         cin>>arr[i];
+//     }
+
+//     for(int i=0;i<n;i++)
+//     {
+//         cout<<arr[i]<<"  ";
+//     }
+
+//     cout<<endl;
+//     delete[] arr;
+//     return 0;
+// }
 
 
+//Template
+
+// #include<iostream>
+// using namespace std;
+
+// template<class T>
+// void sum(T a , T b)
+// {
+//     cout<<"sum of the two numbers : "<<a+b<<endl;
+// }
+
+// int main()
+// {
+//     sum(2,5);
+//     return 0;
+// }
+
+
+// #include<iostream>
+// using namespace std;
+
+// template<class T>
+// T mul(T a , T b)   //here we use return type T because we do not know the return type
+// {
+//     return a*b;
+// }
+
+// int main()
+// {
+//     cout<<mul(2,4);
+//     return 0;
+// }
+
+// #include<iostream>
+// using namespace std;
+
+// template<class T>
+// class Array
+// {
+//     T arr[10];
+//     int size;
+//     public:
+//     Array()
+//     {
+//         size = 10;
+//     }
+
+//     void insert(int index , T value)
+//     {
+//         arr[index] = value;
+//     }
+
+//     T getvalue(int index)
+//     {
+//         return arr[index];
+//     }
+
+// };
+
+// int main()
+// {
+//     Array<int> o1;
+//     Array<float> o2;
+//     o1.insert(0,10);
+//     o2.insert(1,20);
+//     cout<<o1.getvalue(0)<<endl;
+//     return 0;
+// }
+
+
+
+// #include<iostream>
+// using namespace std;
+
+// template<class T>
+// class Student
+// {
+//     T reg;
+//     public:
+//     Student(T reg)
+//     {
+//         this->reg = reg;
+//     }
+
+//     void display();
+// };
+// template<class T>
+// void Student<T> :: display()
+// {
+//     cout<<"Reg.number of the student : "<<reg<<endl;
+// }
+
+// int main()
+// {
+//     Student<int> o1(1);
+//     o1.display();
+//     return 0;
+// }
+
+
+
+//exceptional handling
+
+// #include<iostream>
+// using namespace std;
+
+// class Customer
+// {
+//     string name;
+//     int balance , account_number;
+
+//     public:
+//     Customer(string name ,int balance , int account_number)
+//     {
+//         this->name = name;
+//         this->balance = balance;
+//         this->account_number = account_number;
+//     }
+
+//     //deposit
+//     void deposit(int amount)
+//     {
+//         if(amount>0)
+//         {
+//             balance+=amount;
+//             cout<<amount<<" rs is credited successfully\n";
+//         }
+//         else
+//         {
+//             throw "amount should be greater than Zero";
+//         }
+//     }
+
+//     //withdrawal
+//     void withdrawal(int amount)
+//     {
+//         if(amount>0 && amount<=balance)
+//         {
+//             balance-=amount;
+//             cout<<amount<<" rs is debited successfully\n";
+//         }
+
+//         else if(amount<0)
+//         {
+//             throw "amount should be greater than zero";
+//         }
+
+//         else 
+//         {
+//             throw "Your balance is low";
+//         }
+
+//     }
+// };
+
+// int main()
+// {
+//     Customer C("Ashish",6000,123);
+//     try{
+//     C.deposit(500);
+//     C.withdrawal(7000);
+//     }
+    
+//     catch(const char *e)
+//     {
+//         cout<<"Exception occured: "<<e;
+//     }
+
+//     return 0;
+
+// }
+
+
+// #include<iostream>
+// #include<exception>
+// using namespace std;
+
+// int main()
+// {
+//     int a,b;
+//     cin>>a>>b;
+//     try{
+//         if(b==0)
+//         {
+//             throw (runtime_error("cannot division by zero error"));
+//         }
+
+//         int c = a/b;
+//         cout<<c<<endl;
+//     }
+
+//     catch(const exception &e)
+//     {
+//         cout<<e.what();
+//     }
+
+//     return 0;
+// }
+
+
+//preprocessor
 
 
 
