@@ -1,7 +1,6 @@
 // //default constructor and parameterised constructor
 
 
-
 // #include<iostream>
 // using namespace std;
 
@@ -42,7 +41,6 @@
 
 
 //copy consturctor
-
 
 
 // #include<iostream>
@@ -130,9 +128,6 @@
 // shallow copy constructor
 
 
-
-
-
 // #include<iostream>
 // using namespace std;
 
@@ -184,7 +179,7 @@
 // {
 //     string name;
 //     int roll_no;
-   
+    
 //     public:
 //      int *p;
 //     Node(string s,int r)
@@ -233,8 +228,6 @@
 
 
 
-
-
 // #include<iostream>
 // using namespace std;
 
@@ -242,7 +235,6 @@
 // {
 //     string name;
 //     int roll;
-  
 
 //     public:
 //     int *p;
@@ -259,7 +251,7 @@
 //     {
 //         name=temp.name;
 //         roll=temp.roll;
-//          p=new int;
+//         p=new int;
 //         *p=*(temp.p);
 //     }
 //     void display();
@@ -341,13 +333,7 @@
 
 
 
-
 // static variable in class
-
-
-
-
-
 
 // #include<iostream>
 // using namespace std;
@@ -378,6 +364,7 @@
 // #include<iostream>
 // using namespace std;
 
+
 // class Node
 // {
 //   string name;
@@ -390,8 +377,10 @@
 //     this->roll = roll;
 //   }
 
+
 //   void display();
 // };
+
 
 // int Node :: collegeid = 104;
 
@@ -414,12 +403,7 @@
 
 
 
-
-
 //operator overloading in class
-
-
-
 
 // #include<iostream>
 // using namespace std;
@@ -469,7 +453,6 @@
 
 
 
- 
 // #include<iostream>
 // using namespace std;
 // class Node
@@ -481,7 +464,7 @@
 //         this->a = a;
 //         this->b = b;
 //     }
-
+   
 //     Node operator++();
 //     void display();
 // };
@@ -650,7 +633,7 @@
 //     Node obj1("hello");
 //     Node obj2("world");
 //     obj1.display();
-//     obj2.display();
+//     obj2.display(
 //     Node obj3;
 //     obj3=obj1+obj2;
 //     obj3.display();
@@ -769,7 +752,7 @@
 
 
 
-//virtual function=redirect the method 
+//virtual function  = redirect the method 
 //over riding is not neccessay if you does make method in derived class as virtual function then it not throw any error
 
 // 
@@ -810,9 +793,6 @@
 
 
 // pure virtual function=overriding neccessary means it is mendatory that derived same method as virtual function has.
-
-
-
 
 
 // #include<iostream>
@@ -904,12 +884,12 @@
 
 
 //1.constuctor 
-//steps - file creation , read/write/append ,close
+// steps - file creation , read/write/append ,close
 // #include<iostream>  
 // #include<fstream>
 // using namespace std;
 
-// int main()
+// int main() 
 // {
 //     //create and open file ofstream
 //     fstream fout("zero.txt",ios::out);  //for write
@@ -923,7 +903,10 @@
 // }
 
 
+
+
 // #include<iostream>
+// #include<cstring>
 // #include<fstream>
 // using namespace std;
 
@@ -941,6 +924,7 @@
 // }
 
 
+
 // for read
 
 // #include<iostream>
@@ -949,19 +933,117 @@
 
 // int main()
 // {
-//    char name[50];
+//    string  name;
 //    fstream fin("zero.txt",ios::in);
 
 //    fin>>name;
 //    cout<<name;
-//    while(fin>>name) //read word by word
+//    while(fin>>name)  //read word by word    
 //    {
-//     cout<<name<<" ";
-//    }
+//        cout<<name<<" ";
+//    } 
 
 //    fin.close();
 //    return 0;
 // }
+
+
+
+//note that if you want to read word by word 
+//1)while(fin>>name)  ye word by word to read karta hai but space ko considered nhi karta hai hame space khud lagana padta hai.
+//2)while(getline(fin,name)) ye word by word ko read karta hai aur space ko bhi considered karta hai jiske wajah se hame khud se space dene ki jarurat nhi padti hai.
+
+// #include<iostream>
+// #include<cstring>
+// #include<fstream>
+// using namespace std;
+
+
+// int main()
+// {
+//     //for write in the file
+//     fstream fout("first.txt",ios::out);
+//     fout<<"my name is ashish yadav and currently i am persuing our btech in cse in central university of  punjab.";
+//     cout<<"file created and data is written successfully\n";
+//     fout.close();
+
+//    //for read in the file
+//    fstream fin("first.txt",ios::in);
+//    string name;
+// //    fin>>name;
+// //    cout<<name;
+
+// //    while(getline(fin,name))
+// //    {
+// //     cout<<name;
+// //    }
+         
+        //or
+
+// //    while(fin>>name)
+// //    {
+// //     cout<<name<<" ";
+// //    }
+
+
+//    fin.close();
+
+//    return 0;
+// }
+
+
+//jb hmm write mode ka use karte hai to yo har bar overwrite karta hai means existing sentence ko overwrite kar deta hai.
+
+// #include<iostream>
+// #include<fstream>
+// #include<cstring>
+// using namespace std;
+
+// int main()
+// {
+//     fstream fout("second.txt",ios::out);
+//     fout<<"my name is ashish kumar yadav and currently i am persuing my btech at central university of punjab.";
+//     fout.close();
+    
+//     fstream fin("second.txt",ios::in);
+//     string name;
+//     fin>>name;
+//     cout<<name;
+//     while(fin>>name)
+//     {
+//         cout<<name<<" ";
+//     }
+//     fin.close();
+
+//     return 0;
+// }
+
+
+//jb hmm  append mode ka use karte hai tb vo overwrite nhi karta hai ye existing sentence ke piche add ho jata hai.
+// #include<iostream>
+// #include<cstring>
+// #include<fstream>
+// using namespace std;
+
+// int main()
+// {
+//     fstream fout("third.txt",ios::app);
+//     fout<<"my name is ashish kumar yadav and currently i am persuing btech cse at central university of punjab .";
+//     fout.close();
+
+//     fstream fin("third.txt",ios::in);
+//     string name;
+//     fin>>name;
+//     cout<<name;
+//     while(fin>>name)
+//     {
+//         cout<<name<<" ";
+//     }
+//     fin.close();
+
+//     return 0;
+// }
+
 
 
 
@@ -980,7 +1062,7 @@
 
 
 //     //open second file and write data
-//     fout.open("zer0.txt",ios::out);
+//     fout.open("zero.txt",ios::out);
 //     fout<<"B.tech";
 //     fout.close();
 //     cout<<"file created and data written successfully";
@@ -1007,7 +1089,7 @@
 
 
 
-//     //open  second file for reading
+//     //open second file for reading
 //     fin.open("student.txt",ios::in);
 //     cout<<"\nstudent.txt\n";
 //     while(fin>>data)
@@ -1019,6 +1101,36 @@
 
 //     return 0;
 // }
+
+
+//note 
+//1. agar ek line read karni hai space ke sath -> string name , getline(fin,name)
+//2. agar puri file read karni hai space ke sath -> string name,while(getline(fin,name))
+//3. jaise file hai same read karna hai ->  char name , while(fin.get(name)) //char by char read karta hai  , Ye method spaces, tabs aur newlines sab kuch preserve karta hai aur file ko bilkul waise hi output karta hai jaise file mein stored hai.
+
+// #include<iostream>
+// #include<fstream>
+// using namespace std;
+
+// int main()
+// {
+//     fstream fout("fourth.txt",ios::out);
+//     fout<<"my name is ashish kumar yadav and currently i am persuing b tech cse from central university of punjab.";
+//     fout.close();
+    
+
+//     fstream fin("fourth.txt",ios::in);
+//     char ch;
+    
+//     while(fin.get(ch))
+//     {
+//         cout<<ch;
+//     }
+
+//     fin.close();
+//     return 0;
+// }
+
 
 
 //dynamic memory allocation
@@ -1046,6 +1158,7 @@
 
 //     cout<<endl;
 //     delete[] arr;
+
 //     return 0;
 // }
 
@@ -1249,8 +1362,6 @@
 //     return 0;
 // }
 
-
-//preprocessor
 
 
 
